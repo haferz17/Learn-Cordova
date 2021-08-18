@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-whitelist","cordova-plugin-camera","cordova-plugin-qrscanner","cordova-plugin-add-swift-support","@red-mobile/cordova-plugin-barcodescanner","cordova-plugin-androidx-adapter","cordova-plugin-statusbar"]}
+{"plugins":["cordova-plugin-whitelist","cordova-plugin-camera","cordova-plugin-add-swift-support","@red-mobile/cordova-plugin-barcodescanner","cordova-plugin-androidx-adapter","cordova-plugin-statusbar","cordova-plugin-geolocation"]}

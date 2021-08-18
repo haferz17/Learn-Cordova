@@ -18,6 +18,9 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="AndroidXEnabled" value="true" />
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="#fff" />
+        <preference name="StatusBarStyle" value="lightcontent" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

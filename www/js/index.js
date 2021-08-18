@@ -22,6 +22,7 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
+    // Camera
     document.getElementById('buttonCamera').addEventListener('click', () => {
         navigator.camera.getPicture((s) => {
             document.getElementById('result').setAttribute('src', 'data:image/png;base64, ' + s)
@@ -34,6 +35,7 @@ function onDeviceReady() {
         })
     })
 
+    // BarcodeScannner
     document.querySelector("#buttonScan").addEventListener("touchend", function () {
         cordova.plugins.barcodeScanner.scan(
             function (result) {
@@ -57,4 +59,37 @@ function onDeviceReady() {
             }
         )
     })
+
+    // Geolocation
+
+    var Latitude = undefined;
+    var Longitude = undefined;
+
+    // Get coordinates
+    navigator.geolocation.getCurrentPosition(position => {
+        Latitude = position.coords.latitude;
+        Longitude = position.coords.longitude;
+        getMap(Latitude, Longitude);
+    }, error => {
+        console.log('code: ', error)
+    }, {
+        enableHighAccuracy: true
+    });
+
+    // Get map by using coordinates
+    function getMap(latitude, longitude) {
+        var mapOptions = {
+            center: new google.maps.LatLng(0, 0),
+            zoom: 1,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var latLong = new google.maps.LatLng(latitude, longitude);
+        var marker = new google.maps.Marker({ position: latLong });
+
+        marker.setMap(map);
+        map.setZoom(15);
+        map.setCenter(marker.getPosition());
+    }
 }
