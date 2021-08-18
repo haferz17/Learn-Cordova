@@ -36,13 +36,27 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/tailwind.css">
     <title>Hello World</title>
 </head>
 
-<body>
-    <div class="app">
-        <h1>Main Index</h1>
+<body class="bg-white">
+    <div class="bg-white pt-5">
+        <div class="h-10 pl-5">
+            <p class="text-black font-semibold text-xl">Cordova Camera & Barcode Scanner</p>
+        </div>
+        <div class="p-5 pt-0 flex flex-col align-center justify-center">
+            <button id="buttonCamera" class="pl-3 pr-3 h-10 rounded-md align-self-center mb-3 bg-blue-500">
+                Open Camera
+            </button>
+            <p class="text-black mb-2">Camera result</p>
+            <img id="result" src="img/nopreview.png" />
+            <button id="buttonScan" class="pl-3 pr-3 h-10 rounded-md align-self-center mt-5 mb-3 bg-blue-500">
+                Scan Barcode
+            </button>
+            <p class="text-black mb-2">Barcode result</p>
+            <input id="resultBarcode" disabled class="text-black p-3 rounded-md" placeholder="Scan barcode first" />
+        </div>
     </div>
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>

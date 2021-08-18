@@ -22,8 +22,39 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
+    document.getElementById('buttonCamera').addEventListener('click', () => {
+        navigator.camera.getPicture((s) => {
+            document.getElementById('result').setAttribute('src', 'data:image/png;base64, ' + s)
+        }, (e) => {
+        }, {
+            quality: 60,
+            cameraDirection: 1,
+            destinationType: 0,
+            correctOrientation: true
+        })
+    })
 
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+    document.querySelector("#buttonScan").addEventListener("touchend", function () {
+        cordova.plugins.barcodeScanner.scan(
+            function (result) {
+                document.getElementById('resultBarcode').setAttribute('value', result.text)
+            },
+            function (error) {
+                alert("Scanning failed: " + error);
+            },
+            {
+                preferFrontCamera: false, // iOS and Android
+                showFlipCameraButton: false, // iOS and Android
+                showTorchButton: false, // iOS and Android
+                torchOn: false, // Android, launch with the torch switched on (if available)
+                saveHistory: true, // Android, save scan history (default false)
+                prompt: "Place a barcode inside the scan area", // Android
+                resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+                formats: "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+                orientation: "potrait", // Android only (portrait|landscape), default unset so it rotates with the device
+                disableAnimations: true, // iOS
+                disableSuccessBeep: false // iOS and Android
+            }
+        )
+    })
 }

@@ -16,14 +16,27 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@red-mobile/cordova-plugin-barcodescanner": "^9.0.7",
     "cordova-android": "^9.1.0",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^6.2.0",
+    "cordova-plugin-add-swift-support": "^2.0.2",
+    "cordova-plugin-androidx-adapter": "^1.1.3",
+    "cordova-plugin-camera": "^5.0.3",
+    "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "@red-mobile/cordova-plugin-barcodescanner": {
+        "ANDROIDX_LEGACY_SUPPORT_V4_VERSION": "1.0.0"
+      },
+      "cordova-plugin-androidx-adapter": {},
+      "cordova-plugin-statusbar": {}
     },
     "platforms": [
       "browser",
