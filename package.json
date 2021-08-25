@@ -49,6 +49,7 @@
     ]
   },
   "dependencies": {
-    "bootstrap": "^5.1.0"
+    "bootstrap": "^5.1.0",
+    "leaflet": "^1.7.1"
   }
 }

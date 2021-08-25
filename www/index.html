@@ -37,6 +37,9 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light">
     <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
     <title>Hello World</title>
 </head>
 
@@ -58,12 +61,28 @@
             <p class="text-black mb-2">Barcode result</p>
             <input id="resultBarcode" disabled class="text-black p-3 rounded-md mb-3"
                 placeholder="Scan barcode first" />
-            <p class="text-black mb-2">Geolocation</p>
+            <p class="text-black mb-2">Geolocation Google Maps</p>
             <div id="map" style="height:400px;"></div>
+            <p class="text-black mb-2 mt-3">Geolocation Leaflet</p>
+            <div id="mapLeaflet" style="height:400px; width: 100%;"></div>
+            <button id="buttonLoc" class="pl-3 pr-3 h-10 rounded-md align-self-center mt-5 mb-3 bg-blue-500 text-white">
+                Get My Location
+            </button>
+            <button id="buttonWatch"
+                class="pl-3 pr-3 h-10 rounded-md align-self-center mt-5 mb-3 bg-blue-500 text-white">
+                Watch
+            </button>
+            <button id="buttonStopWatch"
+                class="pl-3 pr-3 h-10 rounded-md align-self-center mt-5 mb-3 bg-blue-500 text-white">
+                Stop Watch
+            </button>
         </div>
     </div>
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGSBIcV2Qe28iopmH-jhQQMwBNk9CZUck"></script>
 </body>
 
